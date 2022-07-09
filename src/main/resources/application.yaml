@@ -1,0 +1,25 @@
+server.port: 8080
+
+spring:
+  application:
+    name: SpringExampleApplication
+  datasource:
+    url: jdbc:postgresql://localhost:5432/example?currentSchema=example
+    username: example
+    password: example
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: "classpath:db/changelog/db.changelog-master.yaml"
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+          exclude: "threaddump"
+    metrics:
+      export:
+        prometheus:
+          enabled: true
+      distribution:
+        percentiles-histogram:
+          "[http.server.requests]": true
