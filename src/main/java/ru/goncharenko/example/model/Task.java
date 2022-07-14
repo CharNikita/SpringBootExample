@@ -1,18 +1,18 @@
 package ru.goncharenko.example.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-import org.springframework.data.annotation.Id;
+import lombok.experimental.Accessors;
 
 @Getter
-@Setter
 @Builder
-@ToString
+@Accessors(fluent = true, chain = true)
 public class Task {
-    @Id
+    @JsonProperty("id")
     private Integer id;
+    @JsonProperty("text")
     private String text;
-    private Boolean isCompleted;
+    @JsonProperty("isCompleted")
+    private Boolean completed;
 }

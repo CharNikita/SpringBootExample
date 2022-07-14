@@ -4,10 +4,12 @@ spring:
   application:
     name: SpringExampleApplication
   datasource:
-    url: jdbc:postgresql://localhost:5432/example?currentSchema=example
-    username: example
-    password: example
+    url: jdbc:postgresql://localhost:5432/example
+    username: compose-postgres
+    password: compose-postgres
     driver-class-name: org.postgresql.Driver
+  jooq:
+    sql-dialect: postgres
   liquibase:
     change-log: "classpath:db/changelog/db.changelog-master.yaml"
   management:
